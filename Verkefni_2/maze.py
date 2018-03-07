@@ -8,12 +8,10 @@ class Player(object):
 
     def __init__(self):
         self.rect = pygame.Rect(16, 16, 16, 16)
-        self.antibomberinos=0
-        self.defusedBombs=0
+        self.antibomberinos = 0
+        self.defusedBombs = 0
 
     def move(self, dx, dy):
-
-
         # Move each axis separately. Note that this checks for collisions both times.
         if dx != 0:
             self.move_single_axis(dx, 0)
@@ -40,25 +38,29 @@ class Player(object):
 
         for bomb in bombs:
             if self.rect.colliderect(bomb.rect):
-                if self.antibomberinos == 1:
+                if self.antibomberinos >= 1:
                     if dx > 0:  # Moving right; Hit the left side of the wall
                         self.rect.right = bomb.rect.left
                         bombs.remove(bomb)
+                        self.antibomberinos-=1
                         self.defusedBombs+=1
                     if dx < 0:  # Moving left; Hit the right side of the wall
                         self.rect.left = bomb.rect.right
                         bombs.remove(bomb)
+                        self.antibomberinos -= 1
                         self.defusedBombs+=1
                     if dy > 0:  # Moving down; Hit the top side of the wall
                         self.rect.bottom = bomb.rect.top
                         bombs.remove(bomb)
+                        self.antibomberinos -= 1
                         self.defusedBombs+=1
                     if dy < 0:  # Moving up; Hit the bottom side of the wall
                         self.rect.top = bomb.rect.bottom
                         bombs.remove(bomb)
+                        self.antibomberinos -= 1
                         self.defusedBombs+=1
                 else:
-                    print("no")
+                    raise SystemExit("BOOOOOOOOOOOM")
                 if dx > 0:  # Moving right; Hit the left side of the wall
                     self.rect.right = bomb.rect.left
                 if dx < 0:  # Moving left; Hit the right side of the wall
@@ -70,16 +72,16 @@ class Player(object):
         for antibomb in antibombs:
             if self.rect.colliderect(antibomb.rect):
                 if dx > 0:  # Moving right; Hit the left side of the wall
-                    self.antibomberinos=1
+                    self.antibomberinos+=1
                     antibombs.remove(antibomb)
                 if dx < 0:  # Moving left; Hit the right side of the wall
-                    self.antibomberinos=1
+                    self.antibomberinos+=1
                     antibombs.remove(antibomb)
                 if dy > 0:  # Moving down; Hit the top side of the wall
-                    self.antibomberinos=1
+                    self.antibomberinos+=1
                     antibombs.remove(antibomb)
                 if dy < 0:  # Moving up; Hit the bottom side of the wall
-                    self.antibomberinos=1
+                    self.antibomberinos+=1
                     antibombs.remove(antibomb)
 
         for door in doors:
@@ -101,6 +103,7 @@ class Player(object):
                     self.rect.top = door.rect.bottom
                     if self.defusedBombs >= 2:
                         doors.remove(door)
+
 
 # Nice class to hold a wall rect
 class Wall(object):
@@ -127,7 +130,8 @@ class Door(object):
         doors.append(self)
         self.rect = pygame.Rect(pos[0], pos[1], 16, 16)
 
-
+YELLOW=(255, 200, 0)
+ORANGE=(255,97,3)
 # Initialise pygame
 os.environ["SDL_VIDEO_CENTERED"] = "300"
 pygame.init()
@@ -147,7 +151,7 @@ player = Player()  # Create the player
 # Holds the level layout in a list of strings.
 level = [
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "W                                                          W",
+    "W                                                         AW",
     "W WWWW    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
     "W    W                                                     W",
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW B B B B B B B WW",
@@ -164,17 +168,17 @@ level = [
     "W W                 W WWWWWWWWWWWWWW        WWW      W W   W",
     "W W                 W                 WWWWWW    WWWWWW W   W",
     "W W                 WWWWWWWWWWWWWWWWWWW    W         W W   W",
-    "W W                                     WW WWWWWWWWWWW W   W",
-    "W W                  B           WWWWW   W    W        WWWWW",
-    "W W                                      WWWW W WWWWWWWW   W",
-    "W W                                         W W W          W",
-    "W W                                         W W W  WWWWWWW W",
-    "W W                                         W W      W   W W",
-    "W W                                         W WWWWWWWW   W W",
-    "W W                                         W              W",
-    "W W                                         WWWWWWWWWWWWWWWW",
+    "W W                                      W WWWWWWWWWWW W   W",
+    "W W                  B           WWWWWWW W    W        WWWWW",
+    "W W                              W     W WWWW W WWWWWWWW   W",
+    "W W                              WWWWW W    W W W          W",
+    "W W                                  W WWWW W W W  WWWWWWW W",
+    "W W                                  W    W W W      W   W W",
+    "W W                                  W WW W W WWWWWWWW   W W",
+    "W W                                  W    W W              W",
+    "W W                                  W WWWW WWWWWWWWWWWWWWWW",
     "W W                                                        W",
-    "W W                                                        W",
+    "W W                                  WWWWWWWWWWWWWWWWWWWWWWW",
     "W W                                                        W",
     "W W                                 B                      W",
     "W W                                                        W",
@@ -227,13 +231,13 @@ while running:
     # Move the player if an arrow key is pressed
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT]:
-        player.move(-2, 0)
+        player.move(-4, 0)
     if key[pygame.K_RIGHT]:
-        player.move(2, 0)
+        player.move(4, 0)
     if key[pygame.K_UP]:
-        player.move(0, -2)
+        player.move(0, -4)
     if key[pygame.K_DOWN]:
-        player.move(0, 2)
+        player.move(0, 4)
 
     # Just added this to make it slightly fun ;)
     if player.rect.colliderect(endakubbur):
@@ -251,5 +255,8 @@ while running:
         pygame.draw.rect(screen, (139,69,19), door.rect)
 
     pygame.draw.rect(screen, (0, 255, 255), endakubbur)
-    pygame.draw.rect(screen, (255, 200, 0), player.rect)
+    if player.antibomberinos >= 1:
+        pygame.draw.rect(screen, (YELLOW), player.rect)
+    else:
+        pygame.draw.rect(screen, (ORANGE), player.rect)
     pygame.display.flip()
