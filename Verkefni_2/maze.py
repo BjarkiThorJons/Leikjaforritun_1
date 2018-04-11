@@ -151,49 +151,49 @@ player = Player()  # Create the player
 # Holds the level layout in a list of strings.
 level = [
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "W                                                         AW",
+    "W                                                          W",
     "W WWWW    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
     "W    W                                                     W",
-    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW B B B B B B B WW",
-    "W W              W         B             B                 W",
-    "W W  WWWWWWWWWWW W    B            B                       W",
+    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W W W W W W W WW",
+    "W                W         W             W                 W",
+    "W W WWWWWWWWWWWW W    W            W                       W",
     "W W            W W   WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "W WWWWWWWWWWW WW W   W                      WAAD           W",
-    "W W            W W   W    BWWWWWWWWWWWWW    WAAW  WWWW     W",
-    "W W            W W   W    W            W    WWWW  W        W",
-    "W W            W W                     W          W   BBBB W",
-    "W W            W WWWWWW   WWWWWWWWWWWWWWWWWWWWWWWWWW       W",
-    "W W            W      W                   BW               W",
-    "W W            WWWWWW W            WWWWWWW    WWWWWW W W   W",
-    "W W                 W WWWWWWWWWWWWWW        WWW      W W   W",
-    "W W                 W                 WWWWWW    WWWWWW W   W",
-    "W W                 WWWWWWWWWWWWWWWWWWW    W         W W   W",
-    "W W                                      W WWWWWWWWWWW W   W",
-    "W W                  B           WWWWWWW W    W        WWWWW",
-    "W W                              W     W WWWW W WWWWWWWW   W",
-    "W W                              WWWWW W    W W W          W",
-    "W W                                  W WWWW W W W  WWWWWWW W",
-    "W W                                  W    W W W      W   W W",
-    "W W                                  W WW W W WWWWWWWW   W W",
-    "W W                                  W    W W              W",
-    "W W                                  W WWWW WWWWWWWWWWWWWWWW",
-    "W W                                                        W",
-    "W W                                  WWWWWWWWWWWWWWWWWWWWWWW",
-    "W W                                                        W",
-    "W W                                 B                      W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W A                                                        W",
-    "W W                                                        W",
-    "W W                     B                                  W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W W                                                        W",
-    "W                                                          E",
+    "W WWWWWWWWWWWW W W   W                      WAAD           W",
+    "W W            W W   W    WWWWWWWWWWWWWW    WAAW  WWWW     W",
+    "W W WWWWWWWWWWWW W   W    W            W    WWWW  W        W",
+    "W W            W W                     W          W   WWWW W",
+    "W WWWWWWWWWWWW W WWWWWW   WWWWWWWWWWWWWWWWWWWWWWWWWW       W",
+    "W W            W      W                   WW               W",
+    "WWWBWWWWWWWWWWWWWWWWW W            WWWWWWW    WWWWWW W W   W",
+    "W   W               W WWWWWWWWWWWWWW        WWW      W W   W",
+    "W WWW WWWWWWWWWWWWW W                 WWWWWW    WWWWWW W   W",
+    "W W   W           W WWWWWWWWWW WWWWWWWW    W         W W   W",
+    "W W   W   WWWWWWW W          W W         W WWWWWWWWWWW W   W",
+    "W W WWWWW W     W WWWWWWWWWW W W WWWWWWW W    W        WWWWW",
+    "W W     W W W W W      W W W W W W     W WWWW W WWWWWWWW   W",
+    "W WWWWW W W W W W WWWW W W W W W WWWWW W    W W W          W",
+    "W W   W W W W W W    W W W W W W     W WWWW W W W  WWWWWWW W",
+    "W W W W W W W WWWWWW W   W W W WWWWW W    W W W      W   W W",
+    "W W W W W   W      W W WWW W W     W W WW W W WWWWWWWW   W W",
+    "W W W W WWWWWWWWW  W W       W     W W    W W              W",
+    "W W W           W  W WWWWWWWWWWWWW W W WWWW WWWWWWWWWWWWWWWW",
+    "W W WWWWWWWWWWW W  W   W           W                       W",
+    "W W           W W  WW  W WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+    "W W WWWWWWW W WWW   W  W    W   W   W   W   W   W   W   W  W",
+    "W W   W   W W  W    W  W  W   W   W   W   W   W   W   W    W",
+    "W WWWWW W W WW W    WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W",
+    "W W   W W W W  W    W   W   W   W   W   W   W  W        AW W",
+    "W W W   W W W  W      W   W   W   W   W   W    W WWWWW WWW W",
+    "W W WWWWW W WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWBBW    AW   W W",
+    "W W W        W                              WBBWWWWWWW W W W",
+    "W W WWWWWWWWWWWWWWWWWWWWWW WWWWWW WWWWWWWWWWWAAAAAAAAW W W W",
+    "W W          W             W      W         WAAAAAAAAW W W W",
+    "W WWWWWWWWWW W WWWWWWWWWWWWW WWWWWW WWWWWWW WWWAAAAAAW W W W",
+    "W W        W                 W      W     W   WAAAAAAW W W W",
+    "W W WWWWWW W WWWWWWWWWWWWWWWWW WWWWWW W W WWW WAAAAAAW W W W",
+    "W W      W W W                 W      W W     WAAAAAAW W   W",
+    "WBWWWWWW W W W WWWWWWWWWWWWWWWWW WWWWWW WWWWWWWWWW WWWWWWWWW",
+    "W        W                       W               W         E",
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
 
 ]
@@ -217,11 +217,9 @@ for row in level:
     y += 16
     x = 0
 
-print(bomblocation)
 running = True
 while running:
     clock.tick(60)
-
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             running = False
@@ -252,8 +250,10 @@ while running:
     for antibomb in antibombs:
         pygame.draw.rect(screen, (50,150,120), antibomb.rect)
     for door in doors:
-        pygame.draw.rect(screen, (139,69,19), door.rect)
-
+        if player.defusedBombs<=1:
+            pygame.draw.rect(screen, (255,0,0), door.rect)
+        else:
+            pygame.draw.rect(screen, (124,252,0), door.rect)
     pygame.draw.rect(screen, (0, 255, 255), endakubbur)
     if player.antibomberinos >= 1:
         pygame.draw.rect(screen, (YELLOW), player.rect)
